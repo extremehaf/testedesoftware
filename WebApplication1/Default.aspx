@@ -13,6 +13,15 @@
     
     </div>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WS/WebService1.asmx">HyperLink</asp:HyperLink>
+        <br />
+        <asp:Label ID="Label2" runat="server" Text="E-mail:"></asp:Label><asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Senha:"></asp:Label> <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" OnClick="btnEntrar_Click"/>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

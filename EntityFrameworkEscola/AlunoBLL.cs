@@ -80,5 +80,35 @@ namespace EntityFrameworkEscola.BLL
                 throw new Exception(ex.Message);
             }
         }
+
+        public Domain.Entities.Usuario login(string email, string senha)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(email) && !String.IsNullOrEmpty(senha))
+                {
+                    if (senha.Length >= 8)
+
+                    {
+                        using(var db = new DataContext())
+                        {
+                            return db.Usuarios.Where(u => u.Senha == senha && u.Email == email).FirstOrDefault();
+                        }  
+                    }
+                    else
+                        throw new Exception("Senha Invalida");
+                }
+                else
+                    throw new Exception("Nome não pode ser vazio");
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
