@@ -18,13 +18,13 @@ namespace EntityFrameworkEscola.BLL
         }
         public Domain.Entities.Aluno InserirAluno(string email, string senha, string nome)
         {
-            using (var db = new DataContext())
-            {
+            var db = new DataContext();
+            
                 try
                 {
                     if (!String.IsNullOrEmpty(nome) && !String.IsNullOrEmpty(email))
                     {
-                        if (senha.Length > 8)
+                        if (senha.Length >= 8)
 
                         {
                            
@@ -55,7 +55,7 @@ namespace EntityFrameworkEscola.BLL
                 {
                     throw new Exception(ex.Message);
                 }
-            }
+            
         }
         public List<Domain.Entities.Aluno> retornaAlunosPorNome(string nome)
         {
@@ -69,7 +69,11 @@ namespace EntityFrameworkEscola.BLL
                     }
                 }
                 else
-                    throw new Exception("Nome não pode ser vazio");
+                    throw new ArgumentNullException("Nome não pode ser vazio");
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new ArgumentNullException("Nome não pode ser vazio");
             }
             catch (Exception ex)
             {

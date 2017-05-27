@@ -18,7 +18,7 @@ namespace EntityFrameworkEscola.DataAccess.Map
             Property(x => x.Email)
                 .IsRequired()
                 .HasMaxLength(160)
-                .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("Idx_Usuario_Email") { IsUnique = true }));
+                .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("Idx_Usuario_Email") { IsUnique = false }));
         }
     }
 }
