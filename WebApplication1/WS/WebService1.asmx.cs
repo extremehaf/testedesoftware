@@ -86,6 +86,67 @@ namespace WebApplication1.WS
                 });
             }
         }
+        [WebMethod]
+        public string retornaCursos()
+        {
+            try
+            {
+
+                CursosBLL cursosBLL = new CursosBLL();
+                return JsonConvert.SerializeObject(new
+                {
+                    teste = cursosBLL.retornaCursos()
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    codigo = -1,
+                    msg = ex.Message
+                });
+            }
+        }
+        [WebMethod]
+        public string InserirCurso(string descricao, string numero, bool ativo)
+        {
+            try
+            {
+                CursosBLL alunoBLL = new CursosBLL();
+                return JsonConvert.SerializeObject(new
+                {
+                    teste = alunoBLL.InserirCurso(descricao, numero, ativo)
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    codigo = -1,
+                    msg = ex.Message
+                });
+            }
+        }
+        [WebMethod]
+        public string retornaCursosPorDescricao(string descricao)
+        {
+            try
+            {
+                CursosBLL alunoBLL = new CursosBLL();
+                return JsonConvert.SerializeObject(new
+                {
+                    teste = alunoBLL.retornaCursosPorDescricao(descricao)
+                });
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    codigo = -1,
+                    msg = ex.Message
+                });
+            }
+        }
 
     }
 }

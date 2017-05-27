@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityFrameworkEscola.Domain.Entities;
 using EntityFrameworkEscola.DataAccess;
-namespace EntityFrameworkEscola.Console
+namespace EntityFrameworkEscola.BLL
 {
     public class CursosBLL
     {
@@ -48,7 +48,7 @@ namespace EntityFrameworkEscola.Console
             }
 
         }
-        public List<Domain.Entities.Curso> retornaAlunosPorDescricao(string descricao)
+        public List<Domain.Entities.Curso> retornaCursosPorDescricao(string descricao)
         {
             try
             {
