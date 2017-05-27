@@ -7,7 +7,7 @@ using EntityFrameworkEscola.DataAccess;
 using EntityFrameworkEscola.Domain.Entities;
 namespace EntityFrameworkEscola.BLL
 {
-    public class BLL
+    public class AlunoBLL
     {
         public List<Domain.Entities.Aluno> retornaAluno()
         {

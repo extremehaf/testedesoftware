@@ -31,10 +31,10 @@ namespace WebApplication1.WS
             try
             {
 
-                BLL bll = new BLL();
+                AlunoBLL alunoBLL = new AlunoBLL();
                 return JsonConvert.SerializeObject(new
                 {
-                    teste = bll.retornaAluno()
+                    teste = alunoBLL.retornaAluno()
                 });
             }
             catch (Exception ex)
@@ -51,10 +51,10 @@ namespace WebApplication1.WS
         {
             try
             {
-                BLL bll = new BLL();
+                AlunoBLL alunoBLL = new AlunoBLL();
                 return JsonConvert.SerializeObject(new
                 {
-                    teste = bll.InserirAluno(email, senha, nome)
+                    teste = alunoBLL.InserirAluno(email, senha, nome)
                 });
             }
             catch (Exception ex)
@@ -71,10 +71,10 @@ namespace WebApplication1.WS
         {
             try
             {
-                BLL bll = new BLL();
+                AlunoBLL alunoBLL = new AlunoBLL();
                 return JsonConvert.SerializeObject(new
                 {
-                    teste = bll.retornaAlunosPorNome(nome)
+                    teste = alunoBLL.retornaAlunosPorNome(nome)
                 });
             }
             catch (Exception ex)
