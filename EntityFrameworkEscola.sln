@@ -11,14 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkEscola.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{47038B8F-339B-4E5E-9A6E-BCCB43F53560}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndLoadTestProject1", "WebAndLoadTestProject1\WebAndLoadTestProject1.csproj", "{C57074AD-0C10-4FAB-B6EA-5C06B228C599}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E874658B-8003-4632-9533-51E0F1C4ED3A}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlunoTest", "AlunoTest\AlunoTest.csproj", "{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscolaTest", "AlunoTest\EscolaTest.csproj", "{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndLoadTestProject1", "WebAndLoadTestProject1\WebAndLoadTestProject1.csproj", "{C57074AD-0C10-4FAB-B6EA-5C06B228C599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,14 +42,14 @@ Global
 		{47038B8F-339B-4E5E-9A6E-BCCB43F53560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47038B8F-339B-4E5E-9A6E-BCCB43F53560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47038B8F-339B-4E5E-9A6E-BCCB43F53560}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABEA770-D140-4BB9-BCE0-D3A7FA966A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57074AD-0C10-4FAB-B6EA-5C06B228C599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,18 @@ namespace EntityFrameworkEscola.BLL
                 return db.Alunos.ToList();
             }
         }
+
+        public void ExcluirAlunos()
+        {
+            using (var db = new DataContext())
+            {
+                List<Aluno> alunos = db.Alunos.ToList();
+                foreach (Aluno item in alunos)
+                {
+                    db.Alunos.Remove(item);
+                }
+            }
+        }
         public Domain.Entities.Aluno InserirAluno(string email, string senha, string nome)
         {
             var db = new DataContext();
@@ -73,7 +85,7 @@ namespace EntityFrameworkEscola.BLL
             }
             catch (ArgumentNullException ex)
             {
-                throw new ArgumentNullException("Nome não pode ser vazio");
+                throw new ArgumentNullException("Nome não pode ser vazio" + ex.Message);
             }
             catch (Exception ex)
             {

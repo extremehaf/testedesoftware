@@ -16,6 +16,19 @@ namespace EntityFrameworkEscola.BLL
                 return db.Cursos.ToList();
             }
         }
+
+        public void ExcluirCursos()
+        {
+            using (var db = new DataContext())
+            {
+                List<Curso> cursos = db.Cursos.ToList();
+                foreach (Curso item in cursos)
+                {
+                    db.Cursos.Remove(item);
+                }
+            }
+        }
+
         public Domain.Entities.Curso InserirCurso(string descricao, string numero, bool ativo)
         {
             var db = new DataContext();

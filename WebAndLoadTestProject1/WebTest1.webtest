@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WebTest Name="WebTest1" Id="e2a1c6b9-ec61-4609-8f79-6cb9947accf7" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+<WebTest Name="WebTest1" Id="e2a1c6b9-ec61-4609-8f79-6cb9947accf7" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.9c955b9b-fb77-437a-a61c-23ad5013bcf4.rec.webtestresult" ResultsLocale="">
   <Items>
     <Request Method="POST" Guid="d4e1ec25-e593-4dfe-8604-cf8ad9a38477" Version="1.1" Url="http://localhost/WebSite/WS/WebService1.asmx/retornaAlunos" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
       <FormPostHttpBody />
@@ -10,6 +10,12 @@
         <FormPostParameter Name="senha" Value="123456789" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="email" Value="teste" RecordedValue="" CorrelationBinding="" UrlEncode="True" />
       </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="f070ee1c-5dc0-4a34-9882-719d4e7974ed" Version="1.1" Url="http://localhost/WebSite/WS/WebService1.asmx/retornaAlunos" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Referer" Value="http://localhost/WebSite/WS/WebService1.asmx?op=retornaAlunos" />
+      </Headers>
+      <FormPostHttpBody />
     </Request>
   </Items>
   <DataSources>
@@ -23,4 +29,12 @@
       </Tables>
     </DataSource>
   </DataSources>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="URL de resposta" Description="Valida que a URL de resposta após redirecionamentos é a mesma que a URL de resposta após os parâmetros QueryString serem ignorados." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Meta de tempo de resposta" Description="Valida que o tempo de resposta para a solicitação é menor que ou igual ao tempo de resposta especificado na solicitação. Metas de tempo de resposta nulas serão ignoradas." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
 </WebTest>
