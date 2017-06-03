@@ -21,7 +21,9 @@ namespace EntityFrameworkEscola.BLL
         {
             using (var db = new DataContext())
             {
-                List<Aluno> alunos = db.Alunos.ToList();
+                List<Aluno> alunos = db.Alunos
+                    .Include("Usuario")
+                .ToList();
                 foreach (Aluno item in alunos)
                 {
                     db.Alunos.Remove(item);

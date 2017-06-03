@@ -3,6 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EntityFrameworkEscola.BLL;
 using System.Collections.Generic;
 using EntityFrameworkEscola.Domain.Entities;
+using Newtonsoft.Json;
+using EntityFrameworkEscola.DataAccess;
+using System.Linq;
 
 
 namespace AlunoTest
@@ -10,14 +13,13 @@ namespace AlunoTest
     [TestClass]
     public class AlunoTest
     {
-       /*[TestMethod]
+        [TestMethod]
         public void InserirAlunoTest()
         {
             //Assemble
             AlunoBLL alunoBLL = new AlunoBLL();
             Aluno aluno = new Aluno();
             Aluno alunoResult = new Aluno();
-            List<Aluno> listAluno = new List<Aluno>();
 
             //Act
             string email = "aluno1@gmail.com";
@@ -29,21 +31,25 @@ namespace AlunoTest
             aluno.Nome = nome;
 
             alunoResult = alunoBLL.InserirAluno(aluno.Usuario.Email, aluno.Usuario.Senha, aluno.Nome);
+            aluno.AlunoId = alunoResult.AlunoId;
+            aluno.Usuario.UsuarioId = alunoResult.Usuario.UsuarioId;
 
             //Assert
-            Assert.AreEqual(aluno, alunoResult);
+            string ExpectedResult = JsonConvert.SerializeObject(alunoResult);
+            string ActualResult = JsonConvert.SerializeObject(aluno);
+            Assert.AreEqual(ExpectedResult, ActualResult);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [ExpectedException(typeof(Exception))]
         public void InserirAlunoTest_ArgumentNullException()
         {
             AlunoBLL alunoBLL = new AlunoBLL();
-            alunoBLL.InserirAluno("","","");
+            alunoBLL.InserirAluno("", "", "");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception),"Senha Invalida")]
+        [ExpectedException(typeof(Exception), "Senha Invalida")]
         public void InserirAlunoTest_SenhaInvalida()
         {
             AlunoBLL alunoBLL = new AlunoBLL();
@@ -61,32 +67,60 @@ namespace AlunoTest
         [TestMethod]
         public void retornaAlunoTest()
         {
+
             //Assemble
             AlunoBLL alunoBLL = new AlunoBLL();
-            List<Aluno> listAluno = new List<Aluno>();
+            List<Aluno> expectedResult = new List<Aluno>();
+            List<Aluno> actualResult = new List<Aluno>();
+            string expectedConvert = "", actualConvert = "";
 
             //Act
-            listAluno.Add(alunoBLL.InserirAluno("aluno1@email.com", "password", "Aluno 1"));
-            listAluno.Add(alunoBLL.InserirAluno("aluno2@gmail.com", "password2", "Aluno 2"));
+            expectedResult.Add(alunoBLL.InserirAluno("retornaAluno1@email.com", "password", "retornaAluno 1"));
+            expectedResult.Add(alunoBLL.InserirAluno("retornaAluno2@email.com", "password", "retornaAluno 2"));
+
+            foreach (Aluno al in expectedResult)
+            {
+                expectedConvert += JsonConvert.SerializeObject(al.AlunoId + "" + al.Nome);
+            }
+
+            actualResult = alunoBLL.retornaAluno();
+            foreach (Aluno al in actualResult)
+            {
+                actualConvert += JsonConvert.SerializeObject(al.AlunoId + "" + al.Nome);
+            }
 
             //Assert
-            Assert.AreEqual(listAluno, alunoBLL.retornaAluno());
+            Assert.AreEqual(expectedConvert, actualConvert);
         }
 
         [TestMethod]
         public void retornaAlunosPorNomeTest()
         {
             AlunoBLL alunoBLL = new AlunoBLL();
-            Aluno expectedResult = new Aluno();
+
+            List<Aluno> ExpectedAluno = new List<Aluno>();
+            List<Aluno> ResultAluno = new List<Aluno>();
+            List<Usuario> usuario = new List<Usuario>();
+
+            string expectedResult = "", ActualResult = "";
 
             //Act
-            alunoBLL.InserirAluno("aluno1@email.com", "password", "Aluno 1");
-            expectedResult = alunoBLL.InserirAluno("aluno2@gmail.com", "password2", "Aluno 2");
-            alunoBLL.InserirAluno("aluno3@gmail.com", "password2", "Aluno 3");
-            
-            //Assert
-            Assert.AreEqual(expectedResult, alunoBLL.retornaAlunosPorNome("Aluno 2"));
-        }*/
+            alunoBLL.InserirAluno("retornaAlunosPorNome@email.com", "password", "retornaAlunosPorNome 1");
+            ExpectedAluno.Add(alunoBLL.InserirAluno("retornaAlunosPorNome2@gmail.com", "password2", "retornaAlunosPorNome 2"));
+            alunoBLL.InserirAluno("retornaAlunosPorNome3@gmail.com", "password2", "retornaAlunosPorNome 3");
+
+            foreach (Aluno al in ExpectedAluno)
+            {
+                expectedResult += JsonConvert.SerializeObject(al.AlunoId + "" + al.Nome);
+            }
+
+            ResultAluno = alunoBLL.retornaAlunosPorNome("retornaAlunosPorNome 2");
+            foreach (Aluno al in ResultAluno)
+            {
+                ActualResult += JsonConvert.SerializeObject(al.AlunoId + "" + al.Nome);
+            }
+            Assert.AreEqual(expectedResult, ActualResult);
+        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
@@ -100,6 +134,7 @@ namespace AlunoTest
 
             //Assert
             alunoBLL.retornaAlunosPorNome("");
+
         }
     }
 }

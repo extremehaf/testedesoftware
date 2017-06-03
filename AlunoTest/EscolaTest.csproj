@@ -36,10 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>C:\Users\lucas\OneDrive\Documentos\Visual Studio 2015\Projects\EntityFrameworkEscola-master\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>C:\Users\lucas\OneDrive\Documentos\Visual Studio 2015\Projects\EntityFrameworkEscola-master\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -62,15 +65,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\lucas\OneDrive\Documentos\Visual Studio 2015\Projects\EntityFrameworkEscola-master\EntityFrameworkEscola.DataAccess\EntityFrameworkEscola.DataAccess.csproj">
+    <ProjectReference Include="..\EntityFrameworkEscola.DataAccess\EntityFrameworkEscola.DataAccess.csproj">
       <Project>{d1f9e7ee-46c8-4e6e-858e-c02d9801e981}</Project>
       <Name>EntityFrameworkEscola.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\lucas\OneDrive\Documentos\Visual Studio 2015\Projects\EntityFrameworkEscola-master\EntityFrameworkEscola.Domain\EntityFrameworkEscola.Domain.csproj">
+    <ProjectReference Include="..\EntityFrameworkEscola.Domain\EntityFrameworkEscola.Domain.csproj">
       <Project>{d90425aa-0a60-4539-98b3-33a7a67eed02}</Project>
       <Name>EntityFrameworkEscola.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\lucas\OneDrive\Documentos\Visual Studio 2015\Projects\EntityFrameworkEscola-master\EntityFrameworkEscola\EntityFrameworkEscola.Console.csproj">
+    <ProjectReference Include="..\EntityFrameworkEscola\EntityFrameworkEscola.Console.csproj">
       <Project>{238aced4-5112-4f67-afae-96d54ea0064b}</Project>
       <Name>EntityFrameworkEscola.Console</Name>
     </ProjectReference>
